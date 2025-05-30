@@ -1,3 +1,5 @@
+# Architecture
+
 ```bash
 /cmd
   /api          # Gateway/API única
