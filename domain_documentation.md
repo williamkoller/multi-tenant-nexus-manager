@@ -48,7 +48,6 @@ type UserProfile struct {
 - ID UUID automático
 - `created_at`, `updated_at` automáticos
 - Soft delete com `deleted_at`
-- Versioning para optimistic locking
 - Métodos: `IsDeleted()`
 
 ### BaseAggregateRoot
