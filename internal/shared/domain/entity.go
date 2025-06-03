@@ -2,25 +2,26 @@ package domain
 
 import (
 	"time"
-
-	"github.com/google/uuid"
-	"gorm.io/gorm"
 )
 
 type BaseEntity struct {
-	ID        string         `json:"id" gorm:"primaryKey;type:uuid;default:gen_random_uuid()"`
-	CreatedAt time.Time      `json:"created_at" gorm:"not null"`
-	UpdatedAt time.Time      `json:"updated_at" gorm:"not null"`
-	DeletedAt gorm.DeletedAt `json:"deleted_at,omitempty" gorm:"index"`
+	ID        string    `json:"id"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
-func (e *BaseEntity) BeforeCreate(tx *gorm.DB) error {
-	if e.ID == "" {
-		e.ID = uuid.New().String()
+func (b *BaseEntity) Initialize() {
+	if b.ID == "" {
+		b.ID = GetGenerator().Generate()
 	}
-	return nil
+	now := time.Now()
+	if b.CreatedAt.IsZero() {
+		b.CreatedAt = now
+	}
+	b.UpdatedAt = now
 }
 
-func (e *BaseEntity) IsDeleted() bool {
-	return e.DeletedAt.Valid
+func (b *BaseEntity) GetID() string {
+	b.Initialize()
+	return b.ID
 }

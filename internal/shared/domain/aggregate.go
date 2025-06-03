@@ -1,6 +1,5 @@
 package domain
 
-// AggregateRoot - Interface para agregados
 type AggregateRoot interface {
 	GetID() string
 	GetVersion() int64
@@ -9,7 +8,6 @@ type AggregateRoot interface {
 	RaiseDomainEvent(event DomainEvent)
 }
 
-// BaseAggregateRoot - Implementação base de um agregado
 type BaseAggregateRoot struct {
 	BaseEntity
 	domainEvents []DomainEvent
