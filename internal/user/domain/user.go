@@ -30,8 +30,8 @@ func (u *User) Activate() {
 	u.RaiseDomainEvent(event)
 }
 
-func NewUser(u *User) (User, error) {
-	return User{
+func NewUser(u *User) (*User, error) {
+	return &User{
 		ID:    u.GetID(),
 		Email: u.Email,
 		CPF:   u.CPF,
