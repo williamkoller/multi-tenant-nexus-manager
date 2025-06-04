@@ -3,8 +3,8 @@ package domain_user
 import (
 	"time"
 
-	"github.com/williamkoller/multi-tenant-nexus-manager/internal/shared/domain"
-	"github.com/williamkoller/multi-tenant-nexus-manager/internal/shared/domain/value_objects"
+	"github.com/williamkoller/multi-tenant-nexus-manager/internal/core/domain"
+	"github.com/williamkoller/multi-tenant-nexus-manager/internal/core/domain/value_objects"
 )
 
 type User struct {

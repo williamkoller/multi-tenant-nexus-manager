@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/williamkoller/multi-tenant-nexus-manager/internal/shared/domain/value_objects"
+	"github.com/williamkoller/multi-tenant-nexus-manager/internal/core/domain/value_objects"
 	domain_user "github.com/williamkoller/multi-tenant-nexus-manager/internal/user/domain"
 )
 
